@@ -28,6 +28,12 @@ class Markup:
 
     @classmethod
     def getPracticeMarkup(cls, sample: str) -> InlineKeyboardMarkup:
+        """
+        Метод, возвращающий клавиатуру практики
+        :param sample: пример
+        :return: aiogram.types.InlineKeyboardMarkup
+        """
+
         solutions = [sample.replace("..", char, 1) for char in Text.charsPracticeButtons]
         practiceKeyboard = [[InlineKeyboardButton(text=f"{solution} 💡", callback_data=f"{solution}") for solution in solutions[0:3]],
                             [InlineKeyboardButton(text=f"{solution} 💡", callback_data=f"{solution}") for solution in solutions[3::]],
